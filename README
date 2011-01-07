@@ -1,0 +1,34 @@
+canabalt-bluegin
+----------------
+
+This is a port of Canabalt for Android.  It is built with the BlueGin game
+engine.  It is based on the original iOS version [1].
+
+
+Setup (Android build)
+---------------------
+
+1. Install and build BlueGin [2] 
+2. Copy or symlink the canabalt source folder to the BlueGin distribution folder
+   (ie the same folder as bluegin, samples, tools...)
+3. Build canabalt
+
+% cd canabalt
+% android update project --path .     /* use android.bat on Windows */
+% ndk-build
+% ant debug
+
+
+*** IMPORTANT ***
+
+All graphic and sound assets included in the "data" folder are copyrighted by
+Adam Saltsman and Danny Baranowsky and may not be redistributed (either as
+files or compiled into a binary).
+
+For more information see the included LICENSE file and [3].
+
+
+[1] http://github.com/ericjohnson/canabalt-ios
+[1] http://github.com/safetydank/bluegin
+[2] http://blog.semisecretsoftware.com/canabalt-open-source-details-licensing-and-ex#more
+

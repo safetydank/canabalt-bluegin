@@ -1,0 +1,163 @@
+TexturePack sprites sprite.png 1024 2048
+shard                        shard.png
+bomb                         bomb.png
+dove                         dove.png
+smoke                        smoke.png
+obstacles                    obstacles.png
+obstacles2                   obstacles2.png
+walker2                      walker2.png
+girder-tall                  girder-tall.png
+midground1-trimmed           midground1-trimmed.png
+midground2-trimmed           midground2-trimmed.png
+background-trimmed           background-trimmed.png
+mothership-filled            mothership-filled.png
+dark_tower-filled            dark_tower-filled.png
+gameover                     gameover.png
+pause                        pause.png
+paused                       paused.png
+gameover_exit_on             gameover_exit_on.png
+gameover_exit_off            gameover_exit_off.png
+player2                      player2.png
+jet                          jet.png
+antenna-left                 antenna-left.png
+antenna-right                antenna-right.png
+antenna2-trimmed             antenna2-trimmed.png
+antenna3-trimmed             antenna3-trimmed.png
+antenna4-trimmed             antenna4-trimmed.png
+antenna5-trimmed             antenna5-trimmed.png
+antenna6-trimmed             antenna6-trimmed.png
+crane1                       crane1.png
+crane2-filled                crane2-filled.png
+crane3                       crane3.png
+crane4                       crane4.png
+crane5                       crane5.png
+dishes-trimmed               dishes-trimmed.png
+ac-trimmed                   ac-trimmed.png
+skylight                     skylight.png
+reservoir-trimmed            reservoir-trimmed.png
+pipe1-left                   pipe1-left.png
+pipe1-right                  pipe1-right.png
+pipe2-left                   pipe2-left.png
+pipe2-middle                 pipe2-middle.png
+pipe2-right                  pipe2-right.png
+escape-trimmed-filled        escape-trimmed-filled.png
+access                       access.png
+fence-trimmmed               fence-trimmed.png
+demo_gibs                    demo_gibs.png
+giant_leg_bottom             giant_leg_bottom.png
+giant_leg_top                giant_leg_top.png
+wall1-left                   wall1-left.png
+wall2-left                   wall2-left.png
+wall3-left                   wall3-left.png
+wall4-left                   wall4-left.png
+wall1-middle                 wall1-middle.png
+wall2-middle                 wall2-middle.png
+wall3-middle                 wall3-middle.png
+wall4-middle                 wall4-middle.png
+wall1-right                  wall1-right.png
+wall2-right                  wall2-right.png
+wall3-right                  wall3-right.png
+wall4-right                  wall4-right.png
+window1                      window1.png
+window2                      window2.png
+window3                      window3.png
+window4                      window4.png
+doors                        doors.png
+hall1                        hall1.png
+hall2                        hall2.png
+roof1-left                   roof1-left.png
+roof2-left                   roof2-left.png
+roof3-left                   roof3-left.png
+roof4-left                   roof4-left.png
+roof5-left                   roof6-left.png
+roof6-left                   roof5-left.png
+roof1-middle                 roof1-middle.png
+roof2-middle                 roof2-middle.png
+roof3-middle                 roof3-middle.png
+roof4-middle                 roof4-middle.png
+roof5-middle                 roof6-middle.png
+roof6-middle                 roof5-middle.png
+roof1-right                  roof1-right.png
+roof2-right                  roof2-right.png
+roof3-right                  roof3-right.png
+roof4-right                  roof4-right.png
+roof5-right                  roof6-right.png
+roof6-right                  roof5-right.png
+wall1-left-cracked           wall1-left-cracked.png
+wall2-left-cracked           wall2-left-cracked.png
+wall3-left-cracked           wall3-left-cracked.png
+wall4-left-cracked           wall4-left-cracked.png
+wall1-middle-cracked         wall1-middle-cracked.png
+wall2-middle-cracked         wall2-middle-cracked.png
+wall3-middle-cracked         wall3-middle-cracked.png
+wall4-middle-cracked         wall4-middle-cracked.png
+wall1-right-cracked          wall1-right-cracked.png
+wall2-right-cracked          wall2-right-cracked.png
+wall3-right-cracked          wall3-right-cracked.png
+wall4-right-cracked          wall4-right-cracked.png
+roof1-left-cracked           roof1-left-cracked.png
+roof2-left-cracked           roof2-left-cracked.png
+roof3-left-cracked           roof3-left-cracked.png
+roof4-left-cracked           roof4-left-cracked.png
+roof6-left-cracked           roof6-left-cracked.png
+roof5-left-cracked           roof5-left-cracked.png
+roof1-middle-cracked         roof1-middle-cracked.png
+roof2-middle-cracked         roof2-middle-cracked.png
+roof3-middle-cracked         roof3-middle-cracked.png
+roof4-middle-cracked         roof4-middle-cracked.png
+roof6-middle-cracked         roof6-middle-cracked.png
+roof5-middle-cracked         roof5-middle-cracked.png
+roof1-right-cracked          roof1-right-cracked.png
+roof2-right-cracked          roof2-right-cracked.png
+roof3-right-cracked          roof3-right-cracked.png
+roof4-right-cracked          roof4-right-cracked.png
+roof6-right-cracked          roof6-right-cracked.png
+roof5-right-cracked          roof5-right-cracked.png
+floor1-left                  floor1-left.png
+floor2-left                  floor2-left.png
+floor1-middle                floor1-middle.png
+floor2-middle                floor2-middle.png
+floor1-right                 floor1-right.png
+floor2-right                 floor2-right.png
+billboard_top-middle         billboard_top-middle.png
+billboard_top-left           billboard_top-left.png
+billboard_top-right          billboard_top-right.png
+billboard_middle-left        billboard_middle-left.png
+billboard_middle-right       billboard_middle-right.png
+billboard_bottom-middle      billboard_bottom-middle.png
+billboard_bottom-left        billboard_bottom-left.png
+billboard_bottom-right       billboard_bottom-right.png
+billboard_catwalk-middle     billboard_catwalk-middle.png
+billboard_catwalk-left       billboard_catwalk-left.png
+billboard_catwalk-right      billboard_catwalk-right.png
+billboard_post2              billboard_post2.png
+billboard_dmg1-filled        billboard_dmg1-filled.png
+billboard_dmg2-filled        billboard_dmg2-filled.png
+billboard_dmg3-filled        billboard_dmg3-filled.png
+
+Font nokia font.fnt font.png
+Music run run.mp3
+Sound bomb_launch bomb_launch.mp3
+Sound bomb_pre bomb_pre.mp3
+Sound bomb_hit bomb_hit.mp3
+Sound bomb_explode bomb_explode.mp3
+Sound crumble crumble.mp3
+Sound flap1     flap1.mp3
+Sound flap2     flap2.mp3
+Sound flap3     flap3.mp3
+Sound flyby     flyby.mp3
+Sound giant_leg giant_leg.mp3
+Sound giant_leg_release giant_leg_release.mp3
+Sound glass1  glass1.mp3
+Sound glass2  glass2.mp3
+Sound jump1   jump1.mp3
+Sound jump2   jump2.mp3
+Sound jump3   jump3.mp3
+Sound obstacle1 obstacle1.mp3
+Sound obstacle2 obstacle2.mp3
+Sound obstacle3 obstacle3.mp3
+Sound tumble  tumble.mp3
+Sound wall    wall.mp3
+Sound window1 window1.mp3
+Sound window2 window2.mp3
+
