@@ -15,6 +15,7 @@ Setup (Android build)
 
 % cd canabalt
 % android update project --path .     /* use android.bat on Windows */
+% python ../tools/apack.py data
 % ndk-build
 % ant debug
 
@@ -25,10 +26,10 @@ All graphic and sound assets included in the "data" folder are copyrighted by
 Adam Saltsman and Danny Baranowsky and may not be redistributed (either as
 files or compiled into a binary).
 
-For more information see the included LICENSE file and [3].
+For more information see the included LICENSE file and SemiSecret blog post [3].
 
 
 [1] http://github.com/ericjohnson/canabalt-ios
-[1] http://github.com/safetydank/bluegin
-[2] http://blog.semisecretsoftware.com/canabalt-open-source-details-licensing-and-ex#more
+[2] http://github.com/safetydank/bluegin
+[3] http://blog.semisecretsoftware.com/canabalt-open-source-details-licensing-and-ex#more
 
