@@ -39,7 +39,7 @@ Leg::Leg(Vec2f Origin, Player* player, Sequence* sequence, Graphic graphic)
     s = sequence;
 
     // top = [[FlxSprite spriteWithX:self.x y:-480 graphic:ImgLegTop] retain];
-    top = SpritePtr(new Sprite(x, -480, res.graphic(ImgLegTop)));
+    top = Sprite::create(x, -480, res.graphic(ImgLegTop));
 
     velocity.y = 1600;
 

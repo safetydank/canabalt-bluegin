@@ -5,7 +5,6 @@
 #include "Hall.h"
 #include "HUD.h"
 #include "Jet.h"
-#include "GibEmitter.h"
 #include "Sequence.h"
 #include "Shard.h"
 #include "Smoke.h"
@@ -86,12 +85,12 @@ void PlayState::create()
     int i;
 
     //Far BG 'Easter Egg' objects
-    SpritePtr s = SpritePtr(new Sprite(0, 0, res.graphic(ImgMothership)));
+    SpritePtr s = Sprite::create(0, 0, res.graphic(ImgMothership));
     // s->enableBlend = false;
     s->x = 900;
     s->scrollFactor = Vec2f(0.015, 0);
     add(s);
-    s = SpritePtr(new Sprite(0, 0, res.graphic(ImgDarkTower)));
+    s = Sprite::create(0, 0, res.graphic(ImgDarkTower));
     // s.enableBlend = false;
     s->x = 1700;
     s->scrollFactor = Vec2f(0.015,0);
@@ -103,13 +102,15 @@ void PlayState::create()
     vector<EmitterPtr> smoke;
 
     if (!FlxG.iPhone1G && !FlxG.iPodTouch1G) {
-        int numSmokes = 4;
+        int numSmokes = 8;
+        // int numSmokes = 4;
         if (FlxG.iPad)
             numSmokes = 8;
         if (FlxG.iPhone3G)
             numSmokes = 1;
         for (i=0; i<numSmokes; ++i) {
-            int num_clouds = 15;
+            // int num_clouds = 15;
+            int num_clouds = 25;
             if (FlxG.iPad)
                 num_clouds = 25;
             if (FlxG.iPhone3G)
@@ -171,7 +172,7 @@ void PlayState::create()
     mg->scrollFactor = Vec2f(0.15, 0.25);
     add(mg);
     //add below - since these are trimmed images
-    bg = SpritePtr(new Sprite(0, 30+36+48));
+    bg = Sprite::create(0, 30+36+48);
     bg->x -= QUAKE_OVERHANG;
     if (FlxG.iPad)
         bg->createGraphic(FlxG.width + 2*QUAKE_OVERHANG, 156, FlxU::color(0x868696));
@@ -202,7 +203,7 @@ void PlayState::create()
     mg->y = 104+8;
     mg->scrollFactor = Vec2f(0.4, 0.5);
     add(mg);
-    bg = SpritePtr(new Sprite(0, 104+8+97));
+    bg = Sprite::create(0, 104+8+97);
     bg->x -= QUAKE_OVERHANG;
     bg->createGraphic(FlxG.width+2*QUAKE_OVERHANG, 223, FlxU::color(0x646a7d));
     bg->scrollFactor = Vec2f(0, 0.5); //don't scroll in the x direction at all!
@@ -212,7 +213,7 @@ void PlayState::create()
     // [self add:[Jet jet]];
     add(JetPtr(new Jet(res.graphic("jet"))));
 
-    focus = SpritePtr(new Sprite(0, 0));
+    focus = Sprite::create();
     FlxG.follow(focus, 15);
     FlxG.followBounds(0, 0, INT_MAX, 480);
     FlxG.followAdjust(1.5, 0);
@@ -570,7 +571,7 @@ void PlayState::update()
 
         gameover = 0.01;
         int h = 88;
-        SpritePtr bigGray(new Sprite());
+        SpritePtr bigGray = Sprite::create();
         bigGray->createGraphic(FlxG.width+2*QUAKE_OVERHANG, 64, FlxU::color(0xff35353d));
         bigGray->x = 0-QUAKE_OVERHANG;
         bigGray->y = h+35;
@@ -578,7 +579,7 @@ void PlayState::update()
         bigGray->height = 64;
         bigGray->scrollFactor = Vec2f(0, 0);
         add(bigGray);
-        SpritePtr littleWhite(new Sprite());
+        SpritePtr littleWhite = Sprite::create();
         littleWhite->createGraphic(FlxG.width+2*QUAKE_OVERHANG, 2, FlxU::color(0xffffffff));
         littleWhite->x = 0-QUAKE_OVERHANG;
         littleWhite->y = h+35+64;
@@ -586,7 +587,7 @@ void PlayState::update()
         littleWhite->height = 2;
         littleWhite->scrollFactor = Vec2f(0, 0);
         add(littleWhite);
-        SpritePtr s(new Sprite());
+        SpritePtr s = Sprite::create();
         s->createGraphic(FlxG.width+2*QUAKE_OVERHANG, 30+QUAKE_OVERHANG, FlxU::color(0xff35353d));
         s->x = 0 - QUAKE_OVERHANG;
         s->y = FlxG.height-30;
@@ -594,14 +595,14 @@ void PlayState::update()
         s->height = 30 + QUAKE_OVERHANG;
         s->scrollFactor = Vec2f(0, 0);
         add(s);
-        SpritePtr gameOver(new Sprite(0, 0, res.graphic(ImgGameOver)));
+        SpritePtr gameOver = Sprite::create(0, 0, res.graphic(ImgGameOver));
         gameOver->x = (FlxG.width-390)/2.0;
         gameOver->y = h;
         gameOver->scrollFactor = Vec2f(0, 0);
         add(gameOver);
 
         const float margin = 30.0f;
-        TextPtr epitaphText(new Text(0+margin, h+50+5, FlxG.width-2*margin, epitaph));
+        TextPtr epitaphText = Text::create(0+margin, h+50+5, FlxG.width-2*margin, epitaph);
         epitaphText->setAlignment(ALIGN_CENTER);
         epitaphText->setColor(FlxU::color(0xffffffff));
         epitaphText->scrollFactor = Vec2f(0, 0);
@@ -609,7 +610,7 @@ void PlayState::update()
         epitaphText->printf("You ran %dm before %s", distance, player->epitaph.c_str());
         add(epitaphText);
 
-        TextPtr t(new Text(0, FlxG.height-27+4, FlxG.width-3, string("Tap to retry your daring escape")));
+        TextPtr t = Text::create(0, FlxG.height-27+4, FlxG.width-3, string("Tap to retry your daring escape"));
         t->setSize(18.0f);
         t->setAlignment(ALIGN_RIGHT);
         t->setColor(FlxU::color(0xffffffff));

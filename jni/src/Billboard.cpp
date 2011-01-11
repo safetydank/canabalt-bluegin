@@ -35,15 +35,15 @@ Billboard::Billboard(float maxWidth)
 {
     ResourceManager& res = *(FlxG.resources);
 
-    post = SpritePtr(new Sprite());
-    postTop = SpritePtr(new Sprite(0,0,res.graphic(ImgBillboardPost2)));
+    post = Sprite::create();
+    postTop = Sprite::create(0,0,res.graphic(ImgBillboardPost2));
     bottomEdge = RepeatBlockPtr(new RepeatBlock(0, 0, 0, 0));
     bottomEdge->width = maxWidth-TILE_SIZE*4;
     bottomEdge->height = TILE_SIZE*2;
     bottomEdge->loadGraphic(res.graphic(ImgBillboardBottomMiddle));
-    bottomLeftCorner = SpritePtr(new Sprite(0, 0, res.graphic(ImgBillboardBottomLeft)));
-    bottomRightCorner = SpritePtr(new Sprite(0, 0, res.graphic(ImgBillboardBottomRight)));
-    center = SpritePtr(new Sprite());
+    bottomLeftCorner  = Sprite::create(0, 0, res.graphic(ImgBillboardBottomLeft));
+    bottomRightCorner = Sprite::create(0, 0, res.graphic(ImgBillboardBottomRight));
+    center = Sprite::create();
     leftEdge = RepeatBlockPtr(new RepeatBlock(0, 0, 0, 0));
     leftEdge->width = TILE_SIZE*2;
     leftEdge->height = HALL_HEIGHT-TILE_SIZE*2;
@@ -56,15 +56,15 @@ Billboard::Billboard(float maxWidth)
     topEdge->width = maxWidth-TILE_SIZE*4;
     topEdge->height = TILE_SIZE*2;
     topEdge->loadGraphic(res.graphic(ImgBillboardTopMiddle));
-    topLeftCorner = SpritePtr(new Sprite(0, 0, res.graphic(ImgBillboardTopLeft)));
-    topRightCorner = SpritePtr(new Sprite(0, 0, res.graphic(ImgBillboardTopRight)));
+    topLeftCorner  = Sprite::create(0, 0, res.graphic(ImgBillboardTopLeft));
+    topRightCorner = Sprite::create(0, 0, res.graphic(ImgBillboardTopRight));
     catwalkMiddle = RepeatBlockPtr(new RepeatBlock(0, 0, 0, 0));
     catwalkMiddle->width = maxWidth-TILE_SIZE*2;
     catwalkMiddle->height = 13;
     catwalkMiddle->loadGraphic(res.graphic(ImgBillboardCatwalkMiddle));
-    catwalkLeft = SpritePtr(new Sprite(0, 0, res.graphic(ImgBillboardCatwalkLeft)));
-    catwalkRight = SpritePtr(new Sprite(0, 0, res.graphic(ImgBillboardCatwalkRight)));
-    damage = SpritePtr(new Sprite());
+    catwalkLeft  = Sprite::create(0, 0, res.graphic(ImgBillboardCatwalkLeft));
+    catwalkRight = Sprite::create(0, 0, res.graphic(ImgBillboardCatwalkRight));
+    damage = Sprite::create();
 }
 
 void Billboard::create(float X, float Y, float Width, float Height, float tileSize, int hallHeight)

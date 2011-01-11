@@ -105,7 +105,8 @@ void Sequence::initialize()
 
     GibEmitterPtr ge;
 
-    int gibCount = 40;
+    // int gibCount = 40;
+    int gibCount = 40 * 3;
     if (FlxG.iPad) {
         gibCount = 40*3;
     } else {
@@ -116,14 +117,15 @@ void Sequence::initialize()
     }
 
     ge = GibEmitterPtr(new GibEmitter(gibCount));
-    if (FlxG.iPad) {
-        ge->delay = 0.02/3;
-    } else {
-        if (FlxG.iPhone3G || FlxG.iPhone1G || FlxG.iPodTouch1G)
-            ge->delay = 0.02*2;
-        else
-            ge->delay = 0.02;
-    }
+    ge->delay = 0.02 / 3;
+    // if (FlxG.iPad) {
+    //     ge->delay = 0.02/3;
+    // } else {
+    //     if (FlxG.iPhone3G || FlxG.iPhone1G || FlxG.iPodTouch1G)
+    //         ge->delay = 0.02*2;
+    //     else
+    //         ge->delay = 0.02;
+    // }
     ge->minParticleSpeed = Vec2f(-200, -120);
     ge->maxParticleSpeed = Vec2f(200, 0);
     ge->minParticleSpeed = Vec2f(-200, -120);
@@ -195,13 +197,13 @@ Sequence::Sequence()
     _thisType = 0;
     _lastType = 0;
 
-    layer = GroupPtr(new Group());
-    foregroundLayer = GroupPtr(new Group());
-    renderLayer = GroupPtr(new Group());
-    backgroundRenderLayer = GroupPtr(new Group());
-    layerLeg = GroupPtr(new Group());
+    layer = Group::create();
+    foregroundLayer = Group::create();
+    renderLayer = Group::create();
+    backgroundRenderLayer = Group::create();
+    layerLeg = Group::create();
 
-    blocks = GroupPtr(new Group());
+    blocks = Group::create();
 
     //create the building now, reuse later
     float maxWidth = 1344.0;
@@ -458,16 +460,16 @@ void Sequence::reset()
             rw = width/decSize - indent*2;
             rh = 1 + FlxU::random()*4;
             if (rh > 2) {
-                SpritePtr bs(new Sprite(x+indent*decSize, y-rh*decSize));
+                SpritePtr bs = Sprite::create(x+indent*decSize, y-rh*decSize);
                 bs->createGraphic(rw*decSize, (rh-1)*decSize, FlxU::color(0x4d4d59));
                 // bs.enableBlend = NO;
                 backgroundRenderLayer->add(bs);
-                bs = SpritePtr(new Sprite(x+(indent+1)*decSize, y-decSize));
+                bs = Sprite::create(x+(indent+1)*decSize, y-decSize);
                 bs->createGraphic((rw-2)*decSize, decSize, FlxU::color(0x4d4d59));
                 // bs.enableBlend = NO;
                 backgroundRenderLayer->add(bs);
             } else {
-                SpritePtr bs(new Sprite(x+indent*decSize, y-rh*decSize));
+                SpritePtr bs = Sprite::create(x+indent*decSize, y-rh*decSize);
                 bs->createGraphic(rw*decSize, rh*decSize, FlxU::color(0x4d4d59));
                 // bs.enableBlend = NO;
                 backgroundRenderLayer->add(bs);
@@ -535,7 +537,7 @@ void Sequence::reset()
         if (FlxU::random() < 0.35) {
             //max width is 60*tileSize (60*16 = 960)
             //max n is (960/120)*(8) => 64
-            int deviceScale;
+            int deviceScale = 8;
             if(FlxG.iPad)
                 deviceScale = 8;
             //else if(FlxG.retinaDisplay)
@@ -740,7 +742,7 @@ void Sequence::decorate(float seqX, float seqY, float seqWidth)
     n = seqWidth/s;
     for (i = 0; i < n; ++i)
         if (FlxU::random() < 0.3)
-            backgroundRenderLayer->add(SpritePtr(new Sprite(seqX+decSize+s*i, seqY-decSize, res.graphic(ImgAC))));
+            backgroundRenderLayer->add(Sprite::create(seqX+decSize+s*i, seqY-decSize, res.graphic(ImgAC)));
 
     int ah = 160;
 
@@ -751,9 +753,9 @@ void Sequence::decorate(float seqX, float seqY, float seqWidth)
         for (i = 0; i < n; ++i)
             if (FlxU::random() < 0.35) {
                 //add 3 parts of the pipe...
-                backgroundRenderLayer->add(SpritePtr(new Sprite(seqX+decSize+s+i, seqY-decSize, res.graphic(ImgPipe1Left))));
-                backgroundRenderLayer->add(SpritePtr(new Sprite(seqX+decSize+s+i+100-12, seqY-decSize, res.graphic(ImgPipe1Right))));
-                SpritePtr pipe(new Sprite(seqX+decSize+s+i+13, seqY-decSize));
+                backgroundRenderLayer->add(Sprite::create(seqX+decSize+s+i, seqY-decSize, res.graphic(ImgPipe1Left)));
+                backgroundRenderLayer->add(Sprite::create(seqX+decSize+s+i+100-12, seqY-decSize, res.graphic(ImgPipe1Right)));
+                SpritePtr pipe = Sprite::create(seqX+decSize+s+i+13, seqY-decSize);
                 pipe->createGraphic(100-12-13, 8, FlxU::color(0x4d4d59));
                 backgroundRenderLayer->add(pipe);
                 //[backgroundRenderLayer add:[FlxSprite spriteWithX:seqX+decSize+s*i y:seqY-decSize graphic:ImgPipe1]];
@@ -762,9 +764,9 @@ void Sequence::decorate(float seqX, float seqY, float seqWidth)
         n = (seqWidth-40) / s; // subtract 40 so that it doesn't hang over the edge
         for (i = 0; i < n; ++i)
             if (FlxU::random() < 0.35) {
-                backgroundRenderLayer->add(SpritePtr(new Sprite(seqX+decSize+s*i+2, seqY-decSize*2+5, res.graphic(ImgPipe2Left))));
-                backgroundRenderLayer->add(SpritePtr(new Sprite(seqX+decSize+s*i+2+15, seqY-decSize*2+4, res.graphic(ImgPipe2Middle))));
-                backgroundRenderLayer->add(SpritePtr(new Sprite(seqX+decSize+s*i+2+15+10, seqY-decSize*2+5, res.graphic(ImgPipe2Right))));
+                backgroundRenderLayer->add(Sprite::create(seqX+decSize+s*i+2, seqY-decSize*2+5, res.graphic(ImgPipe2Left)));
+                backgroundRenderLayer->add(Sprite::create(seqX+decSize+s*i+2+15, seqY-decSize*2+4, res.graphic(ImgPipe2Middle)));
+                backgroundRenderLayer->add(Sprite::create(seqX+decSize+s*i+2+15+10, seqY-decSize*2+5, res.graphic(ImgPipe2Right)));
             }
 
         if (FlxU::random() < 0.5) {
@@ -774,26 +776,26 @@ void Sequence::decorate(float seqX, float seqY, float seqWidth)
                 if (FlxU::random() < 0.3) {
                     switch ((int)(FlxU::random()*7)) {
                         case 0:
-                            backgroundRenderLayer->add(SpritePtr(new Sprite(seqX+decSize+s*i, seqY-ah, res.graphic(ImgAntenna1Left))));
-                            backgroundRenderLayer->add(SpritePtr(new Sprite(seqX+decSize+s*i+18, seqY-ah+160-19, res.graphic(ImgAntenna1Right))));
+                            backgroundRenderLayer->add(Sprite::create(seqX+decSize+s*i, seqY-ah, res.graphic(ImgAntenna1Left)));
+                            backgroundRenderLayer->add(Sprite::create(seqX+decSize+s*i+18, seqY-ah+160-19, res.graphic(ImgAntenna1Right)));
                             break;
                         case 1:
-                            backgroundRenderLayer->add(SpritePtr(new Sprite(seqX+decSize+s*i+3, seqY-ah, res.graphic(ImgAntenna2Trimmed))));
+                            backgroundRenderLayer->add(Sprite::create(seqX+decSize+s*i+3, seqY-ah, res.graphic(ImgAntenna2Trimmed)));
                             break;
                         case 2:
-                            backgroundRenderLayer->add(SpritePtr(new Sprite(seqX+decSize+s*i, seqY-ah, res.graphic(ImgAntenna3Trimmed))));
+                            backgroundRenderLayer->add(Sprite::create(seqX+decSize+s*i, seqY-ah, res.graphic(ImgAntenna3Trimmed)));
                             break;
                         case 3:
-                            backgroundRenderLayer->add(SpritePtr(new Sprite(seqX+decSize+s*i, seqY-ah+40, res.graphic(ImgAntenna4Trimmed))));
+                            backgroundRenderLayer->add(Sprite::create(seqX+decSize+s*i, seqY-ah+40, res.graphic(ImgAntenna4Trimmed)));
                             break;
                         case 4:
-                            backgroundRenderLayer->add(SpritePtr(new Sprite(seqX+decSize+s*i+(40-16)/2, seqY-ah+40, res.graphic(ImgAntenna5Trimmed))));
+                            backgroundRenderLayer->add(Sprite::create(seqX+decSize+s*i+(40-16)/2, seqY-ah+40, res.graphic(ImgAntenna5Trimmed)));
                             break;
                         case 5:
-                            backgroundRenderLayer->add(SpritePtr(new Sprite(seqX+decSize+s*i+6, seqY-ah+4, res.graphic(ImgAntenna6Trimmed))));
+                            backgroundRenderLayer->add(Sprite::create(seqX+decSize+s*i+6, seqY-ah+4, res.graphic(ImgAntenna6Trimmed)));
                             break;
                         case 6:
-                            backgroundRenderLayer->add(SpritePtr(new Sprite(seqX+decSize+s*i+1, seqY-ah, res.graphic(ImgDishesTrimmed))));
+                            backgroundRenderLayer->add(Sprite::create(seqX+decSize+s*i+1, seqY-ah, res.graphic(ImgDishesTrimmed)));
                             break;
                     }				  
                 }
@@ -804,17 +806,17 @@ void Sequence::decorate(float seqX, float seqY, float seqWidth)
         n = seqWidth / s;
         for(i = 0; i < n; ++i)
             if(FlxU::random() < 0.5)
-                backgroundRenderLayer->add(SpritePtr(new Sprite(seqX+decSize+s*i, seqY-decSize+1, res.graphic(ImgSkyLight))));
+                backgroundRenderLayer->add(Sprite::create(seqX+decSize+s*i, seqY-decSize+1, res.graphic(ImgSkyLight)));
         s = 200;
         n = seqWidth / s;
         for(i = 0; i < n; ++i)
             if(FlxU::random() < 0.25)
-                backgroundRenderLayer->add(SpritePtr(new Sprite(seqX+decSize+s*i, seqY-30, res.graphic(ImgAccess))));
+                backgroundRenderLayer->add(Sprite::create(seqX+decSize+s*i, seqY-30, res.graphic(ImgAccess)));
         s = 200;
         n = seqWidth / s;
         for(i = 0; i < n; ++i)
             if(FlxU::random() < 0.5)
-                backgroundRenderLayer->add(SpritePtr(new Sprite(seqX+decSize+s*i+2, seqY-decSize*6, res.graphic(ImgReservoir))));
+                backgroundRenderLayer->add(Sprite::create(seqX+decSize+s*i+2, seqY-decSize*6, res.graphic(ImgReservoir)));
     }
 
     if(FlxU::random() < 0.4) {

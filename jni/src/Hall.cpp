@@ -92,7 +92,7 @@ Hall::Hall(float maxWidth)
     hall2->width = maxWidth;
     hall2->height = TILE_SIZE;
     hall2->loadGraphic(res.graphic(ImgHall2));
-    hall3 = SpritePtr(new Sprite(0, 0));
+    hall3 = Sprite::create();
     // doors = [[NSMutableArray alloc] init];
     // extraWindows = [[NSMutableArray alloc] init];
     // extraWalls = [[NSMutableArray alloc] init];
@@ -208,7 +208,7 @@ void Hall::create(float X, float Y, float Width, float Height, float tileSize,
                 extraDoors.pop_back();
             }
             while (doors.size() <= doorIndex)
-                doors.push_back(SpritePtr(new Sprite()));
+                doors.push_back(Sprite::create());
         }
         SpritePtr door = doors.at(doorIndex);
         door->loadGraphic(res.graphic(ImgDoors), true, false, 15, 24);

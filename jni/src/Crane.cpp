@@ -32,12 +32,12 @@ Crane::Crane(float maxWidth)
     post->width = tileSize*2;
     post->height = 400-tileSize*2;
     post->loadGraphic(res.graphic(ImgCrane2));
-    counterweight = SpritePtr(new Sprite(0, 0, res.graphic(ImgCrane3)));
-    cabin = SpritePtr(new Sprite(0, 0, res.graphic(ImgCrane4)));
-    pulley = SpritePtr(new Sprite(0, 0, res.graphic(ImgCrane5)));
-    antenna1 = SpritePtr(new Sprite(0, 0, res.graphic(ImgAntenna5)));
-    antenna2 = SpritePtr(new Sprite(0, 0, res.graphic(ImgAntenna5)));
-    antenna3 = SpritePtr(new Sprite(0, 0, res.graphic(ImgAntenna5)));
+    counterweight = Sprite::create(0, 0, res.graphic(ImgCrane3));
+    cabin    = Sprite::create(0, 0, res.graphic(ImgCrane4));
+    pulley   = Sprite::create(0, 0, res.graphic(ImgCrane5));
+    antenna1 = Sprite::create(0, 0, res.graphic(ImgAntenna5));
+    antenna2 = Sprite::create(0, 0, res.graphic(ImgAntenna5));
+    antenna3 = Sprite::create(0, 0, res.graphic(ImgAntenna5));
 }
 
 void Crane::create(float X, float Y, float Width, float Height, Player* player)

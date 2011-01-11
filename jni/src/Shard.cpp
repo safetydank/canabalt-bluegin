@@ -28,7 +28,7 @@ void Shard::hitBottom(Object& contact, float vel)
     velocity.x *= 0.5+FlxU::random()*0.6;
     velocity.y *= -0.2-FlxU::random()*0.3;
     int vy = velocity.y*3;
-    angularVelocity = (FlxU::random()*vy-vy*2)/16.0 * 100;
+    angularVelocity = (FlxU::random()*vy-vy*2)/16.0 * 10;
 }
 
 ShardEmitter::ShardEmitter(int count) : Emitter(0, 0)
@@ -52,7 +52,7 @@ ShardEmitter::ShardEmitter(int count) : Emitter(0, 0)
         s->solid = true;
         s->exists = false;
         s->scrollFactor = scrollFactor;
-        s->scale = Vec2f(1.25f - FlxU::random(), 1.25f - FlxU::random());
+        s->scale = Vec2f(1.6f - FlxU::random(), 1.6f - FlxU::random());
         s->offset.set(0,-1);
         add(s);
     }

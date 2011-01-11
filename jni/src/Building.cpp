@@ -242,8 +242,8 @@ Building::Building(float maxWidth)
     topEdge->width = maxWidth-TILE_SIZE*2;
     topEdge->height = TILE_SIZE;
     topEdge->loadGraphic(middleRoofs.back());
-    leftCorner = SpritePtr(new Sprite());
-    rightCorner =SpritePtr(new Sprite());
+    leftCorner  = Sprite::create();
+    rightCorner = Sprite::create();
     //prepopulate these.. need to know max height...
     //assume for now height of 400...
     int n = (400/TILE_SIZE-1)/2;
