@@ -19,7 +19,7 @@ static const char* SndBombPre = "bomb_pre";
 static const char* SndBombHit = "bomb_hit";
 static const char* SndBombExplode = "bomb_explode";
 
-LegPtr Leg::get(Vec2f Origin, Player* player, Sequence* sequence)
+LegPtr Leg::create(Vec2f Origin, Player* player, Sequence* sequence)
 {
     ResourceManager& res = *(FlxG.resources);
     return LegPtr(new Leg(Origin, player, sequence, res.graphic(ImgLeg)));

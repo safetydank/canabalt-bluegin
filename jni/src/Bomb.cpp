@@ -17,7 +17,7 @@ static const char* SndBombPre     = "bomb_pre";
 static const char* SndBombHit     = "bomb_hit";
 static const char* SndBombExplode = "bomb_explode";
 
-BombPtr Bomb::get(Vec2f Origin, Player* player, Sequence* sequence)
+BombPtr Bomb::create(Vec2f Origin, Player* player, Sequence* sequence)
 {
     ResourceManager& res = *(FlxG.resources);
     return BombPtr(new Bomb(Origin, player, sequence, res.graphic(ImgBomb)));

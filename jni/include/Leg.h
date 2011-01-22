@@ -19,7 +19,7 @@ public:
     Sequence* s;
     flx::SpritePtr top;
 
-    static LegPtr get(ci::Vec2f origin, Player* player, Sequence* sequence);
+    static LegPtr create(ci::Vec2f origin, Player* player, Sequence* sequence);
     Leg(ci::Vec2f Origin, Player* player, Sequence* sequence, bluegin::Graphic graphic);
     void add(flx::EmitterPtr gibs);
 

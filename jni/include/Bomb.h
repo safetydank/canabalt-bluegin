@@ -18,7 +18,7 @@ public:
     Sequence* s;
     // vector<> en;
 
-    static BombPtr get(ci::Vec2f origin, Player* player, Sequence* sequence);
+    static BombPtr create(ci::Vec2f origin, Player* player, Sequence* sequence);
     Bomb(ci::Vec2f Origin, Player* player, Sequence* sequence, bluegin::Graphic graphic);
     void add(flx::EmitterPtr gibs);
 

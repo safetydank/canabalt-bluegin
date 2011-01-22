@@ -506,13 +506,13 @@ void Sequence::reset()
             //     Gib * g = [Gib gib];
             //     [entry addObject:g];
             // }
-            b = Bomb::get(Vec2f(x+width/2, y), player, this);
+            b = Bomb::create(Vec2f(x+width/2, y), player, this);
             layer->add(b);
             // for (FlxSprite * fs in entry)
             //     [layer add:fs];
         }
         else if (type == LEG) {
-            l = Leg::get(Vec2f(x+width/2, seq->y), player, this);
+            l = Leg::create(Vec2f(x+width/2, seq->y), player, this);
             layerLeg->add(l);
         }
     }
