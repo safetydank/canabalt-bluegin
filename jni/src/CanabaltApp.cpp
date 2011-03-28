@@ -28,7 +28,8 @@ public:
                                  initialState, zoom));
         flxSetup(mGame);
 
-        FlxG.resources->primeAllSounds();
+        FlxG.resources->acquireAllTextures();
+        FlxG.resources->acquireAllSounds();
         FlxG.defaultFont = FlxG.resources->font("nokia").get();
         gl::clear();
     }
