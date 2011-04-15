@@ -327,6 +327,7 @@ void PlayState::create()
 
     gameover = 0;
 
+    bluegin_music_volume(0.8f, 0.8f);
     FlxG.playMusic(res.sound(MusicRun));
     FlxG.play(res.sound(SndCrumble));
 }
